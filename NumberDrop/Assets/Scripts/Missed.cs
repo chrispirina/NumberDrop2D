@@ -5,7 +5,8 @@ using UnityEngine;
 public class Missed : MonoBehaviour {
     
     public GameObject rock;
-    public GameObject playerPos;
+    public GameObject playerObj;
+    public float playerPos;
     public bool destroyed = false;
 
     // Use this for initialization
@@ -17,7 +18,7 @@ public class Missed : MonoBehaviour {
 	void Update () {
 		
 	}
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         Destroy(other.gameObject);
         
@@ -27,7 +28,10 @@ public class Missed : MonoBehaviour {
     private void Respawn()
     {
             Instantiate(rock);
-            rock.transform.position = playerPos.transform.position;
+        playerPos = playerObj.transform.position.x;
+        rock.transform.position = new Vector2(0, 3.080534f);
+
+
 
     }
 }
