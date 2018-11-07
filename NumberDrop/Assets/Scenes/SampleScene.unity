@@ -462,7 +462,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114195202682283058, guid: 37c8f03d23358674db7ac1c237d4dec3, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 37c8f03d23358674db7ac1c237d4dec3, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &882264528
@@ -475,7 +476,6 @@ GameObject:
   - component: {fileID: 882264529}
   - component: {fileID: 882264531}
   - component: {fileID: 882264530}
-  - component: {fileID: 882264532}
   m_Layer: 5
   m_Name: Equation
   m_TagString: Untagged
@@ -541,17 +541,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 882264528}
   m_CullTransparentMesh: 0
---- !u!114 &882264532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 882264528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcc81004dcf86fa41ae4d51ed04c380d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1177875588
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +571,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rock: {fileID: 1851336333749906, guid: 19677c26632712b478e037a53e62e467, type: 2}
   playerObj: {fileID: 1974029271}
-  playerPos: 0
   destroyed: 0
 --- !u!61 &1177875590
 BoxCollider2D:
@@ -829,7 +817,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1919508483}
   - component: {fileID: 1919508482}
-  - component: {fileID: 1919508484}
   m_Layer: 0
   m_Name: RightBounds
   m_TagString: Untagged
@@ -875,21 +862,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1919508484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1919508481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c8031c968c647b459f300499c1a6720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instance: {fileID: 0}
-  rock: {fileID: 1851336333749906, guid: 19677c26632712b478e037a53e62e467, type: 2}
-  playerPos: {fileID: 1974029271}
-  destroyed: 0
 --- !u!1 &1974029271 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1324774865020630, guid: 37c8f03d23358674db7ac1c237d4dec3,
@@ -971,8 +943,6 @@ MonoBehaviour:
   gameMode: 0
   correctAnswer: 0
   equationText: {fileID: 882264530}
-  wrongAnsText: {fileID: 0}
-  rightAnsText: {fileID: 0}
   addition: 1
   wrongAnswer: 000000000000000000000000
 --- !u!50 &2045298069

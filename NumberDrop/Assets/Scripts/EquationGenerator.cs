@@ -13,8 +13,6 @@ public class EquationGenerator : MonoBehaviour
     public static int numberTwo;
     public int correctAnswer;
     public Text equationText;
-    public Text wrongAnsText;
-    public Text rightAnsText;
     public bool addition = true;
 
     public List<int> wrongAnswer;
@@ -27,6 +25,7 @@ public class EquationGenerator : MonoBehaviour
     private void Start()
     {
         GenerateRandomEquation();
+        
         if (addition == true)
             equationText.text = numberOne.ToString() + "+" + numberTwo.ToString() + "=";
         else
@@ -43,7 +42,7 @@ public class EquationGenerator : MonoBehaviour
             else
                 equationText.text = numberOne.ToString() + "x" + numberTwo.ToString() + "=";
 
-            GenerateWrongAnswer();
+           
         }
         
     }
@@ -78,6 +77,8 @@ public class EquationGenerator : MonoBehaviour
         {
             GenerateAddition();
         }
+
+        GenerateWrongAnswer();
 
 
     }

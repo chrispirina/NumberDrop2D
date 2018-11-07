@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Hole : MonoBehaviour
 {
+    
     void NumberDisplay()
     {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        Destroy(other.gameObject);
+        Destroy(this.gameObject);
+        Missed.instance.Respawn();
+
     }
 }

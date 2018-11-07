@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Missed : MonoBehaviour {
-    
+
+    public static Missed instance;
+
     public GameObject rock;
     public GameObject playerObj;
-    public float playerPos;
     public bool destroyed = false;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     // Use this for initialization
     void Start () {
 		
@@ -25,11 +30,10 @@ public class Missed : MonoBehaviour {
         Respawn();
     }
 
-    private void Respawn()
+    public void Respawn()
     {
-            Instantiate(rock);
-        playerPos = playerObj.transform.position.x;
-        rock.transform.position = new Vector2(0, 3.080534f);
+            Instantiate(rock).GetComponent<Rock>().playerPos = playerObj;
+        
 
 
 
