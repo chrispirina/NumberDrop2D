@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EquationGenerator : MonoBehaviour
 {
@@ -8,9 +9,13 @@ public class EquationGenerator : MonoBehaviour
     public enum GameMode {ZEN, CLASSIC, BASIC, MULTIONLY}
 
     public GameMode gameMode;
-    public int numberOne;
-    public int numberTwo;
+    public static int numberOne;
+    public static int numberTwo;
     public int correctAnswer;
+    public Text equationText;
+    public Text wrongAnsText;
+    public Text rightAnsText;
+    public bool addition = true;
 
     public List<int> wrongAnswer;
 
@@ -19,11 +24,25 @@ public class EquationGenerator : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        GenerateRandomEquation();
+        if (addition == true)
+            equationText.text = numberOne.ToString() + "+" + numberTwo.ToString() + "=";
+        else
+            equationText.text = numberOne.ToString() + "x" + numberTwo.ToString() + "=";
+    }
+
     void Update ()
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
             GenerateRandomEquation();
+            if (addition == true)
+                equationText.text = numberOne.ToString() + "+" + numberTwo.ToString() + "=";
+            else
+                equationText.text = numberOne.ToString() + "x" + numberTwo.ToString() + "=";
+
             GenerateWrongAnswer();
         }
         
@@ -38,20 +57,28 @@ public class EquationGenerator : MonoBehaviour
         {
             int rnd = Random.Range(1, 100);
             if (rnd <= 75)
+            {
                 GenerateAddition();
+                addition = true;
+            }
             else
+            {
                 GenerateMultiplication();
+                addition = false;
+            }
         }
 
         if (gameMode == GameMode.MULTIONLY)
         {
             GenerateMultiplication();
+            addition = false;
         }
 
         if (gameMode == GameMode.BASIC)
         {
             GenerateAddition();
         }
+
 
     }
 
