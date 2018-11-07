@@ -7,6 +7,7 @@ public class RockSpawn : MonoBehaviour
 
     public RockSpawn instance;
     public GameObject rock;
+    public GameObject playerPos;
     public bool destroyed = false;
 
 
@@ -31,7 +32,8 @@ public class RockSpawn : MonoBehaviour
     {
         if (destroyed == true)
         {
-            Instantiate(rock);
+             Instantiate(rock);
+            rock.transform.position = playerPos.transform.position;
 
             destroyed = false;
         }

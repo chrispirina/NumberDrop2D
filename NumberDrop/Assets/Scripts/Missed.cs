@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Missed : MonoBehaviour {
-    RockSpawn rockSpawn;
+    
+    public GameObject rock;
+    public GameObject playerPos;
+    public bool destroyed = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -16,10 +19,15 @@ public class Missed : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Rock"))
-        {
-            Destroy(other.gameObject);
-            GameObject.Find("RightBounds").GetComponent<RockSpawn>().destroyed = true;
-        }
+        Destroy(other.gameObject);
+        
+        Respawn();
+    }
+
+    private void Respawn()
+    {
+            Instantiate(rock);
+            rock.transform.position = playerPos.transform.position;
+
     }
 }
