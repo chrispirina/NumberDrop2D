@@ -5,26 +5,31 @@ using UnityEngine;
 public class Rock : MonoBehaviour
 {
     public GameObject playerPos;
-    public bool isHeld = true;
+    public float speed = 0.5f;
+    private bool isHeld = true;
 
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        transform.position = playerPos.transform.position;
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-        if (isHeld)
-            transform.position = playerPos.transform.position;
+        if (isHeld == true)
+        transform.position = playerPos.transform.position;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isHeld = false;
-            
-        }
-		
-	}
 
-  
+        }
+
+    }
+
+
 }
+
+

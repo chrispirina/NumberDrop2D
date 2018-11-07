@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 1324774865020630, guid: 37c8f03d23358674db7ac1c237d4dec3, type: 2}
-  isHeld: 1
+  speed: 0.1
 --- !u!212 &212556902168194370
 SpriteRenderer:
   m_ObjectHideFlags: 1
